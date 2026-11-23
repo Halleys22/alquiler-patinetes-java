@@ -4,7 +4,7 @@ Aplicación académica de escritorio para registrar, consultar y eliminar alquil
 
 ## Contexto y alcance
 
-Proyecto académico de Desarrollo de Aplicaciones Multiplataforma. La implementación inicial y la preparación de la documentación se realizaron con asistencia de IA.
+Proyecto académico de Desarrollo de Aplicaciones Multiplataforma.
 
 ## Funciones implementadas
 
