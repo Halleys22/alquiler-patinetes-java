@@ -1,0 +1,16 @@
+target/
+out/
+bin/
+*.class
+*.log
+.env
+.env.*
+.idea/
+.settings/
+.classpath
+.project
+*.launch
+database/*export*.sql
+*.zip
+.DS_Store
+Thumbs.db

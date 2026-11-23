@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="alquilerpatin.controladores.RegistroController"
+      prefWidth="640.0" styleClass="app-shell" stylesheets="@estilos.css">
+    <HBox alignment="CENTER_LEFT" styleClass="dialog-header">
+        <Label text="Registro de alquiler" styleClass="page-title"/>
+    </HBox>
+
+    <VBox spacing="13.0" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="18.0" right="26.0" bottom="22.0" left="26.0"/>
+        </padding>
+        <Label text="Datos del usuario" styleClass="section-title"/>
+        <GridPane hgap="16.0" vgap="13.0">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="48.0" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="52.0" hgrow="ALWAYS"/>
+            </columnConstraints>
+            <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <HBox alignment="BASELINE_LEFT" spacing="8.0">
+                    <Label text="DNI" styleClass="field-label"/>
+                    <Label text="8 números y 1 letra" styleClass="muted-label"/>
+                </HBox>
+                <TextField fx:id="dniField" accessibleText="DNI" promptText="12345678A"/>
+            </VBox>
+            <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <HBox alignment="BASELINE_LEFT" spacing="8.0">
+                    <Label text="Nombre completo" styleClass="field-label"/>
+                    <Label text="1–100 caracteres" styleClass="muted-label"/>
+                </HBox>
+                <TextField fx:id="nombreField" accessibleText="Nombre completo"/>
+            </VBox>
+            <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <HBox alignment="BASELINE_LEFT" spacing="8.0">
+                    <Label text="Email" styleClass="field-label"/>
+                    <Label text="6–100 caracteres" styleClass="muted-label"/>
+                </HBox>
+                <TextField fx:id="emailField" accessibleText="Email" promptText="usuario@correo.com"/>
+            </VBox>
+            <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <HBox alignment="BASELINE_LEFT" spacing="8.0">
+                    <Label text="Teléfono" styleClass="field-label"/>
+                    <Label text="1–9 dígitos" styleClass="muted-label"/>
+                </HBox>
+                <TextField fx:id="telefonoField" accessibleText="Teléfono"/>
+            </VBox>
+        </GridPane>
+        <Separator/>
+        <Label text="Datos del alquiler" styleClass="section-title"/>
+        <VBox spacing="5.0">
+            <Label text="Patinete" styleClass="field-label"/>
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <TextField fx:id="patineteField" accessibleText="Número de serie del patinete" editable="false"
+                           promptText="Selecciona un patinete" styleClass="read-only-field" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="buscarPatineteButton" accessibleText="Buscar patinete" styleClass="icon-button"
+                        onAction="#buscarPatinete">
+                    <graphic>
+                        <SVGPath styleClass="search-icon" content="M11 7 a4 4 0 1 0 -8 0 a4 4 0 1 0 8 0 M10 10 l5 5"/>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+        <GridPane hgap="16.0">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="48.0" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="52.0" hgrow="ALWAYS"/>
+            </columnConstraints>
+            <VBox spacing="5.0" GridPane.columnIndex="0">
+                <HBox alignment="BASELINE_LEFT" spacing="8.0">
+                    <Label text="Fecha de recogida" styleClass="field-label"/>
+                    <Label text="dd/mm/aaaa" styleClass="muted-label"/>
+                </HBox>
+                <DatePicker fx:id="recogidaPicker" accessibleText="Fecha de recogida" editable="true"
+                            maxWidth="Infinity" promptText="dd/mm/aaaa"/>
+            </VBox>
+            <VBox spacing="5.0" GridPane.columnIndex="1">
+                <HBox alignment="BASELINE_LEFT" spacing="8.0">
+                    <Label text="Fecha de devolución" styleClass="field-label"/>
+                    <Label text="dd/mm/aaaa" styleClass="muted-label"/>
+                </HBox>
+                <DatePicker fx:id="devolucionPicker" accessibleText="Fecha de devolución" editable="true"
+                            maxWidth="Infinity" promptText="dd/mm/aaaa"/>
+            </VBox>
+        </GridPane>
+        <StackPane alignment="CENTER_LEFT" minHeight="18.0" prefHeight="18.0">
+            <Label fx:id="avisoLimiteLabel" styleClass="input-error"/>
+        </StackPane>
+    </VBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="action-bar">
+        <Button fx:id="cancelarButton" text="Cancelar" cancelButton="true" onAction="#cancelar"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="limpiarButton" text="Limpiar datos" onAction="#limpiar"/>
+        <Button fx:id="aceptarButton" text="Aceptar" defaultButton="true" styleClass="primary-button" onAction="#aceptar"/>
+    </HBox>
+</VBox>
